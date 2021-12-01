@@ -7,5 +7,78 @@
     "contact": {
       "email": "nata.mw@hotmail.com"
     }
+  },
+  "paths": {
+    "/categories": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Create Category",
+        "description": "Create a new category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "tags": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "Date"
+                  }
+                },
+                "example": {
+                  "name": "Exemple",
+                  "description": "descriprion excemple",
+                  "tags": "[exe1, ex2]"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Category already exists"
+          }
+        }
+      },
+      "get":{
+        "tags": ["Category"],
+        "summary": "List all catergories",
+        "description": "List all category",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json":{
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "type": "array",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
