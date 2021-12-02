@@ -52,7 +52,7 @@ services:
 
   app:
     build: .
-    container_name: rentx
+    container_name: toptrampo
     restart: always
     ports: 
       - 3333:3333

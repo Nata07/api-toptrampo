@@ -1,16 +1,16 @@
 import { Request, Response } from 'express';
-import { CreateSpecificationUseCase } from '../createSpacification/CreateSpecificationUseCase';
+import { CreateCategoryUseCase } from './CreateCategoryUseCase';
 
 class CreateCategoryController {
-  constructor(private createSpecificationUsecase: CreateSpecificationUseCase) {}
-  handle(request: Request, response: Response): Response {
+  constructor(private createSpecificationUsecase: CreateCategoryUseCase) {}
+
+  async handle(request: Request, response: Response): Promise<Response> {
     const { name, description, tags } = request.body;
 
-    this.createSpecificationUsecase.execute({
+    await this.createSpecificationUsecase.execute({
       name,
       description,
       tags,
-      created_at: new Date(),
     });
 
     return response.status(201).json({ message: 'ok' });
