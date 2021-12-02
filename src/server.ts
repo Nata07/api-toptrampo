@@ -4,7 +4,11 @@ import { specificationRoutes } from './routes/specification.routes';
 
 import swaggerUI from 'swagger-ui-express';
 import swaggerFile from './swagger.json';
+
+import './database';
+
 const app = expres();
+
 app.use(expres.json());
 
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerFile));
