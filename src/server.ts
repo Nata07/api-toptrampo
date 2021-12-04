@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+
 import expres from 'express';
 import { categoryRoutes } from './routes/category.routes';
 import { specificationRoutes } from './routes/specification.routes';
@@ -6,6 +8,8 @@ import swaggerUI from 'swagger-ui-express';
 import swaggerFile from './swagger.json';
 
 import './database';
+
+import './shared/container';
 
 const app = expres();
 
