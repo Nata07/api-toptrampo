@@ -79,6 +79,54 @@
           }
         }
       }
+    },
+    "/specifications": {
+      "post": {
+        "tags": ["Specifications"],
+        "summary":"Create Specification",
+        "description": "Create a new specification",
+        "requestBody":{
+         "content": {
+           "application/json":{
+             "schema":{
+               "$ref": "#/definitions/Specification"
+             }
+           }
+          }   
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "Create a new specification"
+        },
+        "500": {
+          "description":"Specification already exists"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Specification": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "Date"
+        }
+      },
+      "example": {
+        "name": "Exemple",
+        "description": "descriprion excemple",
+        "tags": "[exe1, ex2]"
+      }
     }
   }
 }
